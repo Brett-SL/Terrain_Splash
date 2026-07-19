@@ -1,8 +1,3 @@
-Terrain Splash
-
-Micro-game exploring an island scene with terrain objects made in unity. 
-
-Game jam project with DonTheDeveloper's communitiy.
-
-Projects focus is exploration of scene creation and interaction with terrain game objects. Design features an island scene with interactable bodies of water.
- 
+version https://git-lfs.github.com/spec/v1
+oid sha256:360b88aa2abfffb6ab269e9a7062596877e56d01c49511b10decd5c63acda2b2
+size 303
