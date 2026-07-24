@@ -1147,6 +1147,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2475748936924421648, guid: caf5237964e720646a8d77d13d369c51, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 40db3173a05ae3242b1c182a09b0a183, type: 2}
     - target: {fileID: 8411471064518067306, guid: caf5237964e720646a8d77d13d369c51, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1198,6 +1202,10 @@ PrefabInstance:
     - target: {fileID: 9218970634324008667, guid: caf5237964e720646a8d77d13d369c51, type: 3}
       propertyPath: SprintSpeed
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218970634324008667, guid: caf5237964e720646a8d77d13d369c51, type: 3}
+      propertyPath: FootstepAudioVolume
+      value: 0.025
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
