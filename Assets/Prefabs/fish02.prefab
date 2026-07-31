@@ -139,4 +139,4 @@ MonoBehaviour:
   m_AlignmentMode: 1
   m_ObjectForwardAxis: 5
   m_ObjectUpAxis: 1
-  m_StartOffset: 0.02
+  m_StartOffset: 0
