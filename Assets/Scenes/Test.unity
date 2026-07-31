@@ -1023,56 +1023,11 @@ Transform:
   - {fileID: 812067124}
   m_Father: {fileID: 1137643214}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &812067123
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 812067124}
-  - component: {fileID: 812067125}
-  m_Layer: 0
-  m_Name: Spawn Fish
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &812067124
+--- !u!4 &812067124 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 4007825450439229459, guid: ae6dabc5546b1f24cb888dfb7386773b, type: 3}
+  m_PrefabInstance: {fileID: 5226751297440949056}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 812067123}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 29.25, y: -2.25, z: 22.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 727002833}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &812067125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 812067123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1dce0cf91ec80f4ba280bac83a4f800, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SpawnFish
-  seaAquaticLife:
-  - {fileID: 3236701822750333088, guid: a5ace30554c127c409295a564f86c397, type: 3}
-  - {fileID: 1818744588163300835, guid: 5ffe1d503817c014e9756e065f9f350d, type: 3}
-  - {fileID: 5516082130148200720, guid: 5ef6c994d9ad78f42af5b34325666ad2, type: 3}
-  - {fileID: 8294210594552231374, guid: 1f8f7f3418df5fb46953b1a20a354704, type: 3}
-  splineObject: {fileID: 1129491113}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1884,6 +1839,95 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e25d3cd30980e01429b2a494cb44631c, type: 3}
+--- !u!1001 &5226751297440949056
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 727002833}
+    m_Modifications:
+    - target: {fileID: 1774806877765551517, guid: ae6dabc5546b1f24cb888dfb7386773b, type: 3}
+      propertyPath: m_Name
+      value: Spawn Fish
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007825450439229459, guid: ae6dabc5546b1f24cb888dfb7386773b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 29.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007825450439229459, guid: ae6dabc5546b1f24cb888dfb7386773b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007825450439229459, guid: ae6dabc5546b1f24cb888dfb7386773b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 22.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007825450439229459, guid: ae6dabc5546b1f24cb888dfb7386773b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007825450439229459, guid: ae6dabc5546b1f24cb888dfb7386773b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007825450439229459, guid: ae6dabc5546b1f24cb888dfb7386773b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007825450439229459, guid: ae6dabc5546b1f24cb888dfb7386773b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007825450439229459, guid: ae6dabc5546b1f24cb888dfb7386773b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007825450439229459, guid: ae6dabc5546b1f24cb888dfb7386773b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007825450439229459, guid: ae6dabc5546b1f24cb888dfb7386773b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6055682883184763470, guid: ae6dabc5546b1f24cb888dfb7386773b, type: 3}
+      propertyPath: maxFish
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6055682883184763470, guid: ae6dabc5546b1f24cb888dfb7386773b, type: 3}
+      propertyPath: minFish
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6055682883184763470, guid: ae6dabc5546b1f24cb888dfb7386773b, type: 3}
+      propertyPath: splineObject
+      value: 
+      objectReference: {fileID: 1129491113}
+    - target: {fileID: 6055682883184763470, guid: ae6dabc5546b1f24cb888dfb7386773b, type: 3}
+      propertyPath: splineAquaticLife.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6055682883184763470, guid: ae6dabc5546b1f24cb888dfb7386773b, type: 3}
+      propertyPath: 'splineAquaticLife.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3236701822750333088, guid: a5ace30554c127c409295a564f86c397, type: 3}
+    - target: {fileID: 6055682883184763470, guid: ae6dabc5546b1f24cb888dfb7386773b, type: 3}
+      propertyPath: 'splineAquaticLife.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1818744588163300835, guid: 5ffe1d503817c014e9756e065f9f350d, type: 3}
+    - target: {fileID: 6055682883184763470, guid: ae6dabc5546b1f24cb888dfb7386773b, type: 3}
+      propertyPath: 'splineAquaticLife.Array.data[2]'
+      value: 
+      objectReference: {fileID: 5516082130148200720, guid: 5ef6c994d9ad78f42af5b34325666ad2, type: 3}
+    - target: {fileID: 6055682883184763470, guid: ae6dabc5546b1f24cb888dfb7386773b, type: 3}
+      propertyPath: 'splineAquaticLife.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8294210594552231374, guid: 1f8f7f3418df5fb46953b1a20a354704, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ae6dabc5546b1f24cb888dfb7386773b, type: 3}
 --- !u!1001 &6678840617711423773
 PrefabInstance:
   m_ObjectHideFlags: 0

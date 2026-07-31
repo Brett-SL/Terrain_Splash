@@ -7,6 +7,10 @@ public class SpawnFish : MonoBehaviour
     [SerializeField] private List<GameObject> splineAquaticLife;
     [SerializeField] private SplineContainer splineObject;
 
+    [SerializeField] private int minFish;
+    [SerializeField] private int maxFish;
+
+    private List<float> fishSplinePositions = new List<float>();
     private List<GameObject> spawnedFish;
 
     private void Awake()
@@ -28,24 +32,72 @@ public class SpawnFish : MonoBehaviour
 
     private void GenerateFish()
     {
-        foreach (GameObject fish in splineAquaticLife)
+        int randomFishNum = Random.Range(minFish, maxFish);
+        Debug.Log(randomFishNum);
+
+        for (int i = 0; i < randomFishNum; i++)
         {
-            // Getting random num & spline location to instantiate fish at random location
-            float fishInstantiatePoint = Random.Range(0f, 1f);
-            Vector3 position = splineObject.EvaluatePosition(fishInstantiatePoint);
+            GameObject selectedFish = PickFish(splineAquaticLife);
+            InstantiateFish(selectedFish);
+        }
+    }
 
-            // Getting fish instance to add to spawn list and start animation
-            GameObject instancedFish = Instantiate(fish, position, Quaternion.identity);
-            spawnedFish.Add(instancedFish);
+    private GameObject PickFish(List<GameObject> serializedList)
+    {
+        int randomIndex = Random.Range(0, serializedList.Count);
+        Debug.Log(randomIndex);
+        
+        return serializedList[randomIndex];
+    }
 
-            SplineAnimate splineAnimate = instancedFish.GetComponent<SplineAnimate>();
+    private void InstantiateFish(GameObject selectedFish)
+    {
+        int maxAttempts = 0;
+        float fishInstantiatePoint = Random.Range(0f, 1f);
+        bool isValidDistance = FishDistanceCheck(fishInstantiatePoint);
 
-            if (splineAnimate != null)
+        while (!isValidDistance && maxAttempts <= 10)
+        {
+            fishInstantiatePoint = Random.Range(0f, 1f);
+            isValidDistance = FishDistanceCheck(fishInstantiatePoint);
+            maxAttempts++;
+        }
+        
+        fishSplinePositions.Add(fishInstantiatePoint);
+
+        // Getting fish instance to add to spawn list and start animation
+        Vector3 position = splineObject.EvaluatePosition(fishInstantiatePoint);
+        GameObject instancedFish = Instantiate(selectedFish, position, Quaternion.identity);
+        
+        spawnedFish.Add(instancedFish);
+
+        SplineAnimate splineAnimate = instancedFish.GetComponent<SplineAnimate>();
+
+        if (splineAnimate != null)
+        {
+            splineAnimate.Container = splineObject;
+            splineAnimate.StartOffset = fishInstantiatePoint;
+            splineAnimate.Play();   
+        }
+    }
+
+    private bool FishDistanceCheck(float spawnPoint)
+    {
+        float minDistance = 0.3f;
+        bool distanceCheck = true;
+
+        foreach (float point in fishSplinePositions)
+        {
+            float distanceBetweenPoints = Mathf.Abs(spawnPoint - point);
+
+            if (distanceBetweenPoints < minDistance)
             {
-                splineAnimate.Container = splineObject;
-                splineAnimate.Play();   
+                distanceCheck = false;
+                return distanceCheck;
             }
         }
+
+        return distanceCheck;
     }
 
     private void CheckFishPop()
@@ -55,14 +107,4 @@ public class SpawnFish : MonoBehaviour
             GenerateFish();
         }
     }
-
-    /*private void DestroyFish()
-    {
-        float destroyDelay = 3f * Time.deltaTime;
-        foreach (GameObject fish in spawnedFish)
-        {
-            spawnedFish.Remove(fish);
-            Destroy(fish, destroyDelay);
-        }
-    }*/
 }
