@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1774806877765551517}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 29.25, y: -2.25, z: 22.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -44,5 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1dce0cf91ec80f4ba280bac83a4f800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnFish
-  splineAquaticLife: []
+  splineAquaticLife:
+  - {fileID: 3236701822750333088, guid: a5ace30554c127c409295a564f86c397, type: 3}
+  - {fileID: 1818744588163300835, guid: 5ffe1d503817c014e9756e065f9f350d, type: 3}
+  - {fileID: 5516082130148200720, guid: 5ef6c994d9ad78f42af5b34325666ad2, type: 3}
+  - {fileID: 8294210594552231374, guid: 1f8f7f3418df5fb46953b1a20a354704, type: 3}
   splineObject: {fileID: 0}
+  spawnedFishGroup: {fileID: 0}
+  minFish: 2
+  maxFish: 7

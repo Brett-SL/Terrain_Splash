@@ -6,6 +6,7 @@ public class SpawnFish : MonoBehaviour
 {
     [SerializeField] private List<GameObject> splineAquaticLife;
     [SerializeField] private SplineContainer splineObject;
+    [SerializeField] private Transform spawnedFishGroup;
 
     [SerializeField] private int minFish;
     [SerializeField] private int maxFish;
@@ -33,7 +34,6 @@ public class SpawnFish : MonoBehaviour
     private void GenerateFish()
     {
         int randomFishNum = Random.Range(minFish, maxFish);
-        Debug.Log(randomFishNum);
 
         for (int i = 0; i < randomFishNum; i++)
         {
@@ -45,7 +45,6 @@ public class SpawnFish : MonoBehaviour
     private GameObject PickFish(List<GameObject> serializedList)
     {
         int randomIndex = Random.Range(0, serializedList.Count);
-        Debug.Log(randomIndex);
         
         return serializedList[randomIndex];
     }
@@ -67,7 +66,7 @@ public class SpawnFish : MonoBehaviour
 
         // Getting fish instance to add to spawn list and start animation
         Vector3 position = splineObject.EvaluatePosition(fishInstantiatePoint);
-        GameObject instancedFish = Instantiate(selectedFish, position, Quaternion.identity);
+        GameObject instancedFish = Instantiate(selectedFish, position, Quaternion.identity, spawnedFishGroup);
         
         spawnedFish.Add(instancedFish);
 
@@ -102,7 +101,7 @@ public class SpawnFish : MonoBehaviour
 
     private void CheckFishPop()
     {
-        if (spawnedFish.Count < 3 && !(spawnedFish.Count > 7))
+        if (spawnedFish.Count < minFish && !(spawnedFish.Count > maxFish))
         {
             GenerateFish();
         }
