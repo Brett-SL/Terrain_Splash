@@ -40,11 +40,16 @@ public class StartFishing : MonoBehaviour
 
     private void InteractFishing(bool canFish)
     {
-        if (_input.interact && canFish)
+        if (!_input.interact)
+        {
+            return;
+        }
+        
+        if (canFish)
         {
             Debug.Log("Caught Fish!");
-
-            _input.interact = false;
         }
+
+        _input.interact = false;
     }
 }
