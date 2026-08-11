@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class StartFishing : MonoBehaviour
 {
+    private FishingArea _fishingArea;
     private PlayerInput _playerInput;
     private StarterAssetsInputs _input;
 
@@ -27,6 +28,7 @@ public class StartFishing : MonoBehaviour
         if (other.CompareTag("FishingInteract"))
         {
             _canFish = true;
+            _fishingArea = other.GetComponentInParent<FishingArea>();
         }
     }
 
@@ -35,6 +37,14 @@ public class StartFishing : MonoBehaviour
         if (other.CompareTag("FishingInteract"))
         {
             _canFish = false;
+            
+            // Ensuring exited area is previous assigned area from OnEnter
+            FishingArea exitedArea = other.GetComponentInParent<FishingArea>();
+
+            if (exitedArea == _fishingArea)
+            {
+                _fishingArea = null;
+            }
         }
     }
 
@@ -48,6 +58,7 @@ public class StartFishing : MonoBehaviour
         if (canFish)
         {
             Debug.Log("Caught Fish!");
+            _fishingArea.GetClosestFish(transform.position);
         }
 
         _input.interact = false;

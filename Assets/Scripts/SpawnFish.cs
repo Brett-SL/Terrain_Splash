@@ -12,11 +12,13 @@ public class SpawnFish : MonoBehaviour
     [SerializeField] private int maxFish;
 
     private List<float> fishSplinePositions = new List<float>();
-    private List<GameObject> spawnedFish;
+    //private List<GameObject> spawnedFish;
+
+    private FishingArea fishingArea;
 
     private void Awake()
     {
-        spawnedFish = new List<GameObject>();
+        fishingArea = GetComponentInParent<FishingArea>();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -68,7 +70,8 @@ public class SpawnFish : MonoBehaviour
         Vector3 position = splineObject.EvaluatePosition(fishInstantiatePoint);
         GameObject instancedFish = Instantiate(selectedFish, position, Quaternion.identity, spawnedFishGroup);
         
-        spawnedFish.Add(instancedFish);
+        // Adding fish for fishingArea's list
+        fishingArea.AddSpawnedFish(instancedFish);
 
         SplineAnimate splineAnimate = instancedFish.GetComponent<SplineAnimate>();
 
@@ -101,7 +104,8 @@ public class SpawnFish : MonoBehaviour
 
     private void CheckFishPop()
     {
-        if (spawnedFish.Count < minFish && !(spawnedFish.Count > maxFish))
+        if (fishingArea.GetCurrentSpawnedFish() < minFish && 
+            !(fishingArea.GetCurrentSpawnedFish() > maxFish))
         {
             GenerateFish();
         }
