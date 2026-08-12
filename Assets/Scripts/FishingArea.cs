@@ -1,47 +1,38 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class FishingArea : MonoBehaviour
 {
-    //[SerializeField] private StartFishing startFishing;
+    [SerializeField] private ScoreBoard _scoreBoard;
 
-    private List<GameObject> spawnedFish;
+    private FishData _fishInfo;
+    private List<GameObject> _spawnedFish;
+
+    private int _points;
+    public int Points => _points;
 
     private void Awake()
     {
-        //startFishing = GetComponent<StartFishing>();
-        spawnedFish = new List<GameObject>();
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-        
+        //_scoreBoard = GetComponent<ScoreBoard>();
+        _spawnedFish = new List<GameObject>();
     }
 
     public void AddSpawnedFish(GameObject fish)
     {
-        spawnedFish.Add(fish);
+        _spawnedFish.Add(fish);
     }
 
     public int GetCurrentSpawnedFish()
     {
-        return spawnedFish.Count;
+        return _spawnedFish.Count;
     }
 
-    public GameObject GetClosestFish(Vector3 playerPos)
+    private GameObject GetClosestFish(Vector3 playerPos)
     {
         float nearestFish = float.PositiveInfinity;
         GameObject currentClosestFish = null; 
 
-        foreach (GameObject fish in spawnedFish)
+        foreach (GameObject fish in _spawnedFish)
         {
             Vector3 fishLocation = fish.transform.position;
             float distanceToFishSq = (playerPos - fishLocation).sqrMagnitude;
@@ -53,12 +44,32 @@ public class FishingArea : MonoBehaviour
             }
         }
 
-        Debug.Log(currentClosestFish);
+        _fishInfo = currentClosestFish.GetComponent<FishData>();
+        Debug.Log($"Species: {_fishInfo.Species}, Rarity: {_fishInfo.Rarity}, Points: {_fishInfo.Points}");
         return currentClosestFish;
     }
 
-    private void CatchClosestFish()
+    private void AddScoreToScoreBoard(int amount)
     {
-        
+        _scoreBoard.AddScore(amount);
     }
+    public int CatchFish(Vector3 playerPos)
+    {
+        GameObject fish = GetClosestFish(playerPos);
+        
+        if (fish == null)
+        {
+            return 0;
+        }
+
+        _points = _fishInfo.Points;
+        Debug.Log($"Points added: {_points}");
+
+        AddScoreToScoreBoard(_points);
+
+        _spawnedFish.Remove(fish);
+        Destroy(fish.gameObject);
+
+        return _points;
+    }    
 }

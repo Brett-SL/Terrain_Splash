@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4257104453161175766}
   - component: {fileID: 3590933650164762462}
   - component: {fileID: 5590372729692645931}
+  - component: {fileID: 3860805830257761666}
   m_Layer: 0
   m_Name: fish02
   m_TagString: Untagged
@@ -140,3 +141,18 @@ MonoBehaviour:
   m_ObjectForwardAxis: 5
   m_ObjectUpAxis: 1
   m_StartOffset: 0
+--- !u!114 &3860805830257761666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818744588163300835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1316fd4f20f02f64cb279356b2f67188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FishData
+  _species: Halibut
+  _rarity: Common
+  _points: 10

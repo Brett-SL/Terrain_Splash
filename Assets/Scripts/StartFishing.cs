@@ -58,7 +58,7 @@ public class StartFishing : MonoBehaviour
         if (canFish)
         {
             Debug.Log("Caught Fish!");
-            _fishingArea.GetClosestFish(transform.position);
+            _fishingArea.CatchFish(transform.position);
         }
 
         _input.interact = false;

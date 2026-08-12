@@ -7105,6 +7105,7 @@ GameObject:
   - component: {fileID: 1449795205}
   - component: {fileID: 1449795204}
   - component: {fileID: 1449795203}
+  - component: {fileID: 1449795207}
   m_Layer: 5
   m_Name: UI Canvas
   m_TagString: Untagged
@@ -7196,6 +7197,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1449795207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449795202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3cc003e9eb9ad4282eede260e0c246, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreBoard
 --- !u!1 &1569772304
 GameObject:
   m_ObjectHideFlags: 0
@@ -7337,6 +7350,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4630123637714649287, guid: 843d3ab932173e3449f1ba79d65722a8, type: 3}
+      propertyPath: _scoreBoard
+      value: 
+      objectReference: {fileID: 1449795207}
     - target: {fileID: 7234700621814561511, guid: 843d3ab932173e3449f1ba79d65722a8, type: 3}
       propertyPath: m_Name
       value: Fishing Area
@@ -7487,6 +7504,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4630123637714649287, guid: 843d3ab932173e3449f1ba79d65722a8, type: 3}
+      propertyPath: _scoreBoard
+      value: 
+      objectReference: {fileID: 1449795207}
     - target: {fileID: 7234700621814561511, guid: 843d3ab932173e3449f1ba79d65722a8, type: 3}
       propertyPath: m_Name
       value: Fishing Area
@@ -7655,6 +7676,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4630123637714649287, guid: 843d3ab932173e3449f1ba79d65722a8, type: 3}
+      propertyPath: _scoreBoard
+      value: 
+      objectReference: {fileID: 1449795207}
     - target: {fileID: 7234700621814561511, guid: 843d3ab932173e3449f1ba79d65722a8, type: 3}
       propertyPath: m_Name
       value: Fishing Area
@@ -9350,17 +9375,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4630123637714649287, guid: 843d3ab932173e3449f1ba79d65722a8, type: 3}
+      propertyPath: _scoreBoard
+      value: 
+      objectReference: {fileID: 1449795207}
     - target: {fileID: 7234700621814561511, guid: 843d3ab932173e3449f1ba79d65722a8, type: 3}
       propertyPath: m_Name
       value: Fishing Area
       objectReference: {fileID: 0}
     - target: {fileID: 8024692024917918943, guid: 843d3ab932173e3449f1ba79d65722a8, type: 3}
       propertyPath: maxFish
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8024692024917918943, guid: 843d3ab932173e3449f1ba79d65722a8, type: 3}
       propertyPath: minFish
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
