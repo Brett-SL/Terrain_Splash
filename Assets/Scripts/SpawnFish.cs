@@ -12,7 +12,6 @@ public class SpawnFish : MonoBehaviour
     [SerializeField] private int maxFish;
 
     private List<float> fishSplinePositions = new List<float>();
-    //private List<GameObject> spawnedFish;
 
     private FishingArea fishingArea;
 

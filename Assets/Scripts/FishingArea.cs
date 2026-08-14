@@ -13,7 +13,6 @@ public class FishingArea : MonoBehaviour
 
     private void Awake()
     {
-        //_scoreBoard = GetComponent<ScoreBoard>();
         _spawnedFish = new List<GameObject>();
     }
 
