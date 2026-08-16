@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class ScoreBoard : MonoBehaviour
 {
-    private TextMeshProUGUI textTMP;
+    private TextMeshProUGUI _textTMP;
 
     private int _score;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
-        textTMP = GetComponentInChildren<TextMeshProUGUI>();
+        _textTMP = GetComponentInChildren<TextMeshProUGUI>();
     }
 
     public void AddScore(int amount)
@@ -22,6 +22,6 @@ public class ScoreBoard : MonoBehaviour
 
     private void UpdateScoreUI()
     {
-        textTMP.text = "SCORE: " + Convert.ToString(_score);
+        _textTMP.text = "SCORE: " + Convert.ToString(_score);
     }
 }

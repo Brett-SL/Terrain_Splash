@@ -4,20 +4,19 @@ using UnityEngine.Splines;
 
 public class SpawnFish : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> splineAquaticLife;
-    [SerializeField] private SplineContainer splineObject;
-    [SerializeField] private Transform spawnedFishGroup;
+    [SerializeField] private List<GameObject> _splineAquaticLife;
+    [SerializeField] private SplineContainer _splineObject;
+    [SerializeField] private Transform _spawnedFishGroup;
 
-    [SerializeField] private int minFish;
-    [SerializeField] private int maxFish;
+    [SerializeField] private int _minFish;
+    [SerializeField] private int _maxFish;
 
-    private List<float> fishSplinePositions = new List<float>();
-
-    private FishingArea fishingArea;
+    private List<float> _fishSplinePositions = new List<float>();
+    private FishingArea _fishingArea;
 
     private void Awake()
     {
-        fishingArea = GetComponentInParent<FishingArea>();
+        _fishingArea = GetComponentInParent<FishingArea>();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -34,11 +33,11 @@ public class SpawnFish : MonoBehaviour
 
     private void GenerateFish()
     {
-        int randomFishNum = Random.Range(minFish, maxFish);
+        int randomFishNum = Random.Range(_minFish, _maxFish);
 
         for (int i = 0; i < randomFishNum; i++)
         {
-            GameObject selectedFish = PickFish(splineAquaticLife);
+            GameObject selectedFish = PickFish(_splineAquaticLife);
             InstantiateFish(selectedFish);
         }
     }
@@ -63,20 +62,20 @@ public class SpawnFish : MonoBehaviour
             maxAttempts++;
         }
         
-        fishSplinePositions.Add(fishInstantiatePoint);
+        _fishSplinePositions.Add(fishInstantiatePoint);
 
         // Getting fish instance to add to spawn list and start animation
-        Vector3 position = splineObject.EvaluatePosition(fishInstantiatePoint);
-        GameObject instancedFish = Instantiate(selectedFish, position, Quaternion.identity, spawnedFishGroup);
+        Vector3 position = _splineObject.EvaluatePosition(fishInstantiatePoint);
+        GameObject instancedFish = Instantiate(selectedFish, position, Quaternion.identity, _spawnedFishGroup);
         
         // Adding fish for fishingArea's list
-        fishingArea.AddSpawnedFish(instancedFish);
+        _fishingArea.AddSpawnedFish(instancedFish);
 
         SplineAnimate splineAnimate = instancedFish.GetComponent<SplineAnimate>();
 
         if (splineAnimate != null)
         {
-            splineAnimate.Container = splineObject;
+            splineAnimate.Container = _splineObject;
             splineAnimate.StartOffset = fishInstantiatePoint;
             splineAnimate.Play();   
         }
@@ -87,7 +86,7 @@ public class SpawnFish : MonoBehaviour
         float minDistance = 0.3f;
         bool distanceCheck = true;
 
-        foreach (float point in fishSplinePositions)
+        foreach (float point in _fishSplinePositions)
         {
             float distanceBetweenPoints = Mathf.Abs(spawnPoint - point);
 
@@ -103,8 +102,8 @@ public class SpawnFish : MonoBehaviour
 
     private void CheckFishPop()
     {
-        if (fishingArea.GetCurrentSpawnedFish() < minFish && 
-            !(fishingArea.GetCurrentSpawnedFish() > maxFish))
+        if (_fishingArea.GetCurrentSpawnedFish() < _minFish && 
+            !(_fishingArea.GetCurrentSpawnedFish() > _maxFish))
         {
             GenerateFish();
         }
